@@ -27,6 +27,7 @@ const render = () => {
   });
 
   $msgBlock.innerHTML = html;
+  $msgBlock.scrollTop = $msgBlock.scrollHeight;
 };
 
 document.addEventListener("DOMContentLoaded", render);
@@ -40,12 +41,19 @@ const compare = (trigger, reply, text) => {
       if (trigger[x][y] === text) {
         items = reply[x];
         item = items[Math.floor(Math.random() * items.length)];
-        msgState = [...msgState, { user: 0, msg: item }];
-
-        render();
       }
     }
   }
+  return item;
+};
+
+const output = (input) => {
+  if (compare(trigger, reply, input)) product = compare(trigger, reply, input);
+  else product = alternative[Math.floor(Math.random() * alternative.length)];
+
+  msgState = [...msgState, { user: 0, msg: product }];
+
+  render();
 };
 
 $inputMsg.onkeyup = (e) => {
@@ -56,7 +64,7 @@ $inputMsg.onkeyup = (e) => {
   render();
 
   setTimeout(() => {
-    compare(trigger, reply, e.target.value);
+    output(e.target.value);
     $inputMsg.value = "";
   }, 300);
 };

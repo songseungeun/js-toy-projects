@@ -43,6 +43,7 @@ body {
 .msg_block {
   flex-grow: 1;
   padding: 12px;
+  overflow-y: auto;
 }
 .msg_block li {
   margin-bottom: 13px;
