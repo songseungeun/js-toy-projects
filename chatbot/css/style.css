@@ -18,17 +18,16 @@ body {
 }
 
 .container {
-  max-width: 750px;
-  min-width: 450px;
+  width: 100%;
   margin: 0 auto;
   padding: 15px;
-  background-color: #ccc;
+  /* background-color: #ccc; */
 }
 
 .title {
   width: 100%;
   text-align: center;
-  background-color: #eee;
+  /* background-color: #eee; */
 }
 
 .chatting_block {
@@ -102,3 +101,36 @@ body {
   color: navy;
   cursor: pointer;
 }
+
+/* Mobile Device */
+@media  (max-width: 480px) {
+  body {
+    /* background-color: red; */
+  }
+
+  .container {
+    width: 100%;
+    min-width: 320px;
+  }
+
+  .chatting_block {
+    width: 100%;
+  } 
+  .msg_block {
+    width: 100%;
+  }
+}
+
+/* Tablet Device */
+/* @media  (min-width:320px) and (max-width:768px) {
+  body {
+    background-color: yellow;
+  }
+} */
+
+/* Tablet Device */
+/* @media (min-width:769px) and (max-width:1024px) {
+  body {
+    background-color: red;
+  }
+ } */
