@@ -12,7 +12,11 @@
   --font-navy: #2b386f;
   --bg-grey: rgb(244, 244, 244);
 }
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   font-family: 'Roboto', 'Noto Sans KR', sans-serif;
   font-size: 0.9em;
   color: var(--font-navy);
@@ -141,12 +145,12 @@ body {
   .container {
     width: 100%;
     min-width: 320px;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
   }
   .chatting_block {
     width: 100%;
-    height: calc(100vh - 44px);
+    height: calc(100% - 44px);
   } 
   .msg_block {
     width: 100%;
