@@ -31,28 +31,10 @@ const render = () => {
   });
 
   $msgBlock.innerHTML = html;
-  hasScrollBar();
   $msgBlock.scrollTop = $msgBlock.scrollHeight;
 };
 
-let timer;
-const hasScrollBar = () => {
-  if (timer) {
-    clearTimeout(timer);
-  }
-  timer = setTimeout(() => {
-    timer = null;
-    if ($msgBlock.clientHeight < $msgBlock.scrollHeight) {
-      $title.style.position = "absolute";
-    } else $title.style.position = "relative";
-  }, 200);
-};
-
 document.addEventListener("DOMContentLoaded", render);
-
-window.onresize = function (e) {
-  hasScrollBar();
-};
 
 const compare = (trigger, reply, text) => {
   let items;
