@@ -42,17 +42,17 @@ body {
 }
 
 .chatting_block {
-  display: flex;
-  flex-direction: column;
-  height: calc(90vh - 44px);
+  position: relative;
+  width: 100%;
+  height: calc(100% - 44px);
   margin: 0 auto;
-  padding: 10px;
   border-radius: 0 0 10px 10px;
   background-color: var(--bg-grey);
-} 
+}
+
 .msg_block {
-  flex-grow: 1;
-  padding: 12px;
+  height: calc(100% - 80px);
+  padding: 20px;
   overflow-y: auto;
 }
 .msg_block li {
@@ -108,18 +108,16 @@ body {
 
 /* user input */
 .user_input_block {
-  position: relative;
-  display: flex;
-  padding: 10px 3px;
-  padding-bottom: 20px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 10px 15px 25px 15px;
 }
 .input_msg_block {
-  display: flex;
   width: 100%;
 }
 .input_msg {
-  flex-grow: 1;
-  margin-right: 5px;
+  width: 100%;
   padding: 10px;
   border: 0;
   outline: 0;
