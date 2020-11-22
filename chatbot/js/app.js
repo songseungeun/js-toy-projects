@@ -1,9 +1,11 @@
-//  { user: 0, msg: '' }
+//  { user: 0, date: '', msg: '' }
 // user > 0: robot, 1: user
 let msgState = [];
 
 const $inputMsg = document.querySelector(".input_msg");
 const $msgBlock = document.querySelector(".msg_block");
+const $inputMsgBlock = document.querySelector(".input_msg_block");
+const $enterMsg = document.querySelector(".enter_msg");
 
 const render = () => {
   let html = "";
@@ -14,6 +16,7 @@ const render = () => {
       <li class="bot_block">
         <div class="bot_icon"><i class="fas fa-robot"></i></div>
         <div class="bot_msg">${msgItem.msg}</div>
+        <div class="bot_date"><em>${msgItem.date}</em></div>
       </li>
     `;
     } else {
@@ -21,6 +24,7 @@ const render = () => {
       <li class="user_block">
         <div class="user_icon"><i class="fas fa-smile"></i></div>
         <div class="user_msg">${msgItem.msg}</div>
+        <div class="user_date"><em>${msgItem.date}</em></div>
       </li>
       `;
     }
@@ -44,27 +48,53 @@ const compare = (trigger, reply, text) => {
       }
     }
   }
+
   return item;
+};
+
+const makeCurrentTime = () => {
+  const today = new Date();
+
+  let hour = today.getHours();
+  let minute = today.getMinutes();
+  const ampm = hour >= 12 ? "오후" : "오전";
+
+  hour %= 12;
+  hour = hour || 12;
+
+  minute = minute < 10 ? "0" + minute : minute;
+
+  const nowTime = `${ampm} ${hour}:${minute}`;
+
+  return nowTime;
 };
 
 const output = (input) => {
   if (compare(trigger, reply, input)) product = compare(trigger, reply, input);
   else product = alternative[Math.floor(Math.random() * alternative.length)];
 
-  msgState = [...msgState, { user: 0, msg: product }];
+  msgState = [...msgState, { user: 0, date: makeCurrentTime(), msg: product }];
 
   render();
 };
 
-$inputMsg.onkeyup = (e) => {
-  if (e.keyCode !== 13) return;
+const userAddChat = () => {
+  if ($inputMsg.value === "") return;
 
-  msgState = [...msgState, { user: 1, msg: e.target.value }];
+  msgState = [
+    ...msgState,
+    { user: 1, date: makeCurrentTime(), msg: $inputMsg.value },
+  ];
 
   render();
 
   setTimeout(() => {
-    output(e.target.value);
+    output($inputMsg.value);
     $inputMsg.value = "";
   }, 300);
+};
+
+$inputMsg.onkeyup = (e) => {
+  if (e.keyCode !== 13) return;
+  userAddChat();
 };
