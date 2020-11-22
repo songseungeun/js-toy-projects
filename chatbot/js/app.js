@@ -14,7 +14,7 @@ const render = () => {
     if (msgItem.user === 0) {
       html += `
       <li class="bot_block">
-        <div class="bot_icon"><i class="fas fa-robot"></i></div>
+        <div class="bot_icon"></div>
         <div class="bot_msg">${msgItem.msg}</div>
         <div class="bot_date"><em>${msgItem.date}</em></div>
       </li>
@@ -22,7 +22,6 @@ const render = () => {
     } else {
       html += `
       <li class="user_block">
-        <div class="user_icon"><i class="fas fa-smile"></i></div>
         <div class="user_msg">${msgItem.msg}</div>
         <div class="user_date"><em>${msgItem.date}</em></div>
       </li>
@@ -61,7 +60,6 @@ const makeCurrentTime = () => {
 
   hour %= 12;
   hour = hour || 12;
-
   minute = minute < 10 ? "0" + minute : minute;
 
   const nowTime = `${ampm} ${hour}:${minute}`;
@@ -70,7 +68,14 @@ const makeCurrentTime = () => {
 };
 
 const output = (input) => {
-  if (compare(trigger, reply, input)) product = compare(trigger, reply, input);
+  let text = input.replace(
+    /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi,
+    ""
+  );
+
+  text = text.replace(/ /g, "").replace(/글쎄/g, "");
+
+  if (compare(trigger, reply, text)) product = compare(trigger, reply, text);
   else product = alternative[Math.floor(Math.random() * alternative.length)];
 
   msgState = [...msgState, { user: 0, date: makeCurrentTime(), msg: product }];

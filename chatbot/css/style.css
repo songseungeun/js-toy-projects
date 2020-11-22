@@ -8,18 +8,24 @@
   list-style: none;
 }
 
+:root {
+  --font-navy: #2b386f;
+  --bg-grey: rgb(244, 244, 244);
+}
 body {
   font-family: 'Roboto', 'Noto Sans KR', sans-serif;
   font-size: 0.9em;
-  color: #58666e;
-  background-color: #f0f3f4;
+  color: var(--font-navy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  width: 100%;
-  margin: 0 auto;
+  width: 370px;
+  height: 90vh;
+  margin: 30px auto;
+  border-radius: 10px;
+  /* box-shadow: 5px 5px 15px 3px rgba(219, 219, 219, 0.3); */
   /* background-color: #ccc; */
 }
 
@@ -34,11 +40,11 @@ body {
 .chatting_block {
   display: flex;
   flex-direction: column;
-  width: 380px;
-  height: calc(100vh - 44px);
+  height: calc(90vh - 44px);
   margin: 0 auto;
   padding: 10px;
-  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--bg-grey);
 } 
 .msg_block {
   flex-grow: 1;
@@ -55,23 +61,35 @@ body {
   display: flex;
   flex-direction: row-reverse;
 }
-.bot_icon, .user_icon {
+.bot_icon {
   width: 30px;
   height: 30px;
   border-radius: 40px;
-  background-color: #ccc;
+  background-position: center -10%;
+  background-size: 170%;
+  /* background-color: #ccc; */
 }
+.bot_icon {
+  background-image: url("../img/robot.jpg");
+}
+/* .user_icon {
+  background-image: url("../img/robot.jpg");
+} */
+
 .bot_msg, .user_msg {
   /* flex-grow: 1; */
   padding: 7px 10px;
   margin: 0 7px;
+  box-shadow: 2px 2px 3px 1px rgba(219, 219, 219, 0.2);
 }
 .bot_msg {
-  background-color: rgb(227, 227, 227);
+  background-color: rgb(255, 255, 255);
+  color: var(--font-navy);
   border-radius: 0 10px 10px 10px;
 }
 .user_msg {
-  background-color: rgb(176, 202, 255);
+  background-color: var(--font-navy);
+  color: #fff;
   border-radius: 10px 10px 0px 10px;
 }
 .bot_date, .user_date {
@@ -123,9 +141,12 @@ body {
   .container {
     width: 100%;
     min-width: 320px;
+    height: 100vh;
+    margin: 0 auto;
   }
   .chatting_block {
     width: 100%;
+    height: calc(100vh - 44px);
   } 
   .msg_block {
     width: 100%;
