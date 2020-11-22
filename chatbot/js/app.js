@@ -81,6 +81,7 @@ const output = (input) => {
   msgState = [...msgState, { user: 0, date: makeCurrentTime(), msg: product }];
 
   render();
+  $inputMsg.focus();
 };
 
 const userAddChat = () => {
