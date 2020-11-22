@@ -45,6 +45,9 @@ const compare = (trigger, reply, text) => {
       if (trigger[x][y] === text) {
         items = reply[x];
         item = items[Math.floor(Math.random() * items.length)];
+      } else if (trigger[x][y].includes(text)) {
+        items = reply[x];
+        item = items[Math.floor(Math.random() * items.length)];
       }
     }
   }
