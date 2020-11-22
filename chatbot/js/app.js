@@ -1,6 +1,6 @@
 //  { user: 0, date: '', msg: '' }
 // user > 0: robot, 1: user
-let msgState = [];
+let msgState = [{ user: 0, date: "", msg: "안녕~" }];
 
 const $title = document.querySelector(".title");
 const $inputMsg = document.querySelector(".input_msg");

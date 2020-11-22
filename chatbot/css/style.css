@@ -74,17 +74,12 @@ body {
   border-radius: 40px;
   background-position: center -10%;
   background-size: 170%;
-  /* background-color: #ccc; */
 }
 .bot_icon {
   background-image: url("../img/robot.jpg");
 }
-/* .user_icon {
-  background-image: url("../img/robot.jpg");
-} */
 
 .bot_msg, .user_msg {
-  /* flex-grow: 1; */
   padding: 7px 10px;
   margin: 0 7px;
   box-shadow: 2px 2px 3px 1px rgba(219, 219, 219, 0.2);
