@@ -108,3 +108,7 @@ $inputMsg.onkeyup = (e) => {
   if (e.keyCode !== 13) return;
   userAddChat();
 };
+
+// $enterMsg.onclick = (e) => {
+//   userAddChat();
+// };

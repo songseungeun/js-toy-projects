@@ -113,10 +113,13 @@ body {
   background-color: var(--bg-grey);
 }
 .input_msg_block {
+  display: flex;
   width: 100%;
 }
 .input_msg {
   width: 100%;
+  /* width: calc(100% - 45px); */
+  margin-right: 3px;
   padding: 10px;
   border: 0;
   outline: 0;
