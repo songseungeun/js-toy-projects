@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,672;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,672;1,900&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
 
 /* FONT STYLE */
 body {
@@ -44,7 +45,7 @@ body *, body *::before, body *::after {
   color: rgb(91, 86, 86);
 }
 
-.newInfo {
+.newInfoForm {
   position: relative;
   width: 300px;
   background-color: #fff;
@@ -55,17 +56,17 @@ body *, body *::before, body *::after {
   /* z-index: 99; */
   border-radius: 10px;
 }
-.newInfo h2 {
+.newInfoForm h2 {
   text-align: center;
   font-size: 30px;
   font-weight: 800;
   margin-bottom: 10px;
   color: #666;
 }
-.newInfo input, .newInfo button {
+.newInfoForm input, .newInfoForm button {
   font-family: 'Playfair Display', 'Noto Serif KR', serif;
 }
-.newInfo input {
+.newInfoForm input {
   width: 100%;
   padding: 15px 10px 5px 10px;
   border: 0px;
@@ -75,14 +76,14 @@ body *, body *::before, body *::after {
   font-size: 20px;
   color: #666;
 }
-.newInfo input::placeholder {
+.newInfoForm input::placeholder {
   color: #aaa;
 }
-.newInfo input:focus {
+.newInfoForm input:focus {
   outline: none;
   border-bottom: 1px solid rgb(72, 91, 167);
 }
-.newInfo button {
+.newInfoForm button {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -99,8 +100,10 @@ body *, body *::before, body *::after {
   border-radius: 0px 0px 10px 10px;
   outline: none;
 }
-.newInfo button:hover {
-  background-color: #34466f;
+.newInfoForm button:disabled {
+  background-color: #ccc;
+  color: #ddd;
+  cursor: default;
 }
 /* warnning message */
 .warnMsg {
@@ -367,7 +370,7 @@ body *, body *::before, body *::after {
 
 /* ----- MOBILE DEVICE ----- */
 @media screen and (max-width: 559px) {
-  .newInfo {
+  .newInfoForm {
     width: calc(100% - 37px);
     float: left;
     padding: 25px 25px 75px 25px;
