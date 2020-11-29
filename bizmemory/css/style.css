@@ -48,11 +48,14 @@ body *, body *::before, body *::after {
 .main {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
-
+.registerBlock {
+  flex: 0 1 300px;
+}
 .newInfoForm {
   position: relative;
-  width: 300px;
+  min-width: 300px;
   background-color: #fff;
 
   padding: 25px 25px 75px 25px;
@@ -120,8 +123,9 @@ body *, body *::before, body *::after {
 
 /* name card list */
 .namecardList {
-  width: calc(100% - 340px);
-  min-height: 100%;
+  flex-grow: 1;
+  /* width: calc(100% - 340px); */
+  /* min-height: 100%; */
   background-color: #f4f4f4;
 
   padding: 10px 10px 10px 0;
@@ -179,7 +183,8 @@ body *, body *::before, body *::after {
 /* card list */
 .cardList {
   display: flex;
-  max-width: 1020px;
+  flex-wrap: wrap;
+  min-width: 400px;
   width: 100%;
   clear: both;
   padding: 10px 15px;
