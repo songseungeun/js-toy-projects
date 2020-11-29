@@ -45,13 +45,18 @@ body *, body *::before, body *::after {
   color: rgb(91, 86, 86);
 }
 
+.main {
+  display: flex;
+  flex-direction: row;
+}
+
 .newInfoForm {
   position: relative;
   width: 300px;
   background-color: #fff;
-  float: left;
+
   padding: 25px 25px 75px 25px;
-  margin: 30px 0 0 20px;
+  margin: 30px 20px 0 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.037);
   /* z-index: 99; */
   border-radius: 10px;
@@ -118,19 +123,19 @@ body *, body *::before, body *::after {
   width: calc(100% - 340px);
   min-height: 100%;
   background-color: #f4f4f4;
-  float: right;
+
   padding: 10px 10px 10px 0;
   position: relative;
 }
 
 /* sort list */
 .sortWrapper {
-  float: right;
+
   width: 100%;
   margin: 20px;
 }
 .sortWrapper h3 {
-  float: right;
+
   text-align: right;
   margin-right: 15px;
   padding-top: 3px;
@@ -139,7 +144,7 @@ body *, body *::before, body *::after {
 }
 
 .sortList {
-  float: right;
+
   text-align: right;
 }
 .sortList > li {
@@ -173,6 +178,7 @@ body *, body *::before, body *::after {
 }
 /* card list */
 .cardList {
+  display: flex;
   max-width: 1020px;
   width: 100%;
   clear: both;
@@ -187,9 +193,12 @@ body *, body *::before, body *::after {
   height: 180px;
   background-color: #d3d3d3;
   margin: 10px 10px 0 0;
-  float: left;
+
   box-shadow: 3px 3px 5px rgba(160, 146, 146, 0.18);
   border-radius: 5px;
+}
+.namecardWrapper {
+  display: flex;
 }
 /* NAMECARD COLOR */
 .color1 {
@@ -247,7 +256,7 @@ body *, body *::before, body *::after {
 }
 
 .namecardInfo {
-  float: left;
+  margin-right: 20px;
 }
 
 .cardName {
@@ -265,10 +274,16 @@ body *, body *::before, body *::after {
 }
 
 .namecardCompany {
-  float: right;
   margin: 15px 10px 0 0;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 600;
+}
+
+.cardCompany {
+  width: 95px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .cardDivision, 
@@ -280,21 +295,23 @@ body *, body *::before, body *::after {
   display: inline;
 }
 
-.favoriteBtn {
+.namecardIcon {
   position: absolute;
-  top: 0;
-  right: 24px;
+  top: 5px;
+  right: 10px;
+  font-size: 0px;
+}
+.favoriteBtn {
+  position: relative;
+  top: 2px;
+  width: 19px;
+  margin-right: 2px;
   background-color: transparent;
   border: 0;
   cursor: pointer;
-  margin: 8px 10px 8px 8px;
 }
 .deleteBtn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 18px;
-  margin: 11px;
+  width: 15px;
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -370,9 +387,14 @@ body *, body *::before, body *::after {
 
 /* ----- MOBILE DEVICE ----- */
 @media screen and (max-width: 559px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  
   .newInfoForm {
     width: calc(100% - 37px);
-    float: left;
+
     padding: 25px 25px 75px 25px;
     margin: 30px 20px;
   }
@@ -380,12 +402,12 @@ body *, body *::before, body *::after {
     width: 100%;
     min-height: 100%;
     background-color: #f4f4f4;
-    float: right;
+
     padding: 10px;
     position: relative;
   }
   .sortWrapper {
-    float: right;
+
     width: 100%;
     margin: 0 0 20px 0;
   }
