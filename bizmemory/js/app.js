@@ -42,9 +42,9 @@ let list = [
 ];
 let item = {};
 
-let errorName = "none";
-let errorEmail = "none";
-let errorMobile = "none";
+let errorName = false;
+let errorEmail = false;
+let errorMobile = false;
 
 // register
 const $newInfoForm = document.querySelector(".newInfoForm");
@@ -62,6 +62,7 @@ const $favList = document.querySelector(".favList");
 
 const inputReset = () => {
   $newInput.forEach(($input) => ($input.value = ""));
+  $submitBtn.disabled = true;
   item = {};
 };
 
@@ -139,9 +140,6 @@ const generateId = () => Math.max(...list.map((card) => card.id)) + 1;
 const handleSubmit = (e) => {
   e.preventDefault();
 
-  if (!error) {
-  }
-
   item.id = generateId();
   item.fav = false;
 
@@ -160,17 +158,15 @@ const validateInput = ({ target }) => {
   let inputName = target.className;
   let inputValue = target.value;
 
-  if (inputName === "name")
-    errorName = inputValue.length >= 2 ? "none" : "block";
-  else if (inputName === "email")
-    errorEmail = emailRegExp.test(inputValue) ? "none" : "block";
-  else if (inputName === "mobile")
-    errorMobile = mobileRegExp.test(inputValue) ? "none" : "block";
+  if (inputName === "name") errorName = inputValue.length >= 2;
+  else if (inputName === "email") errorEmail = emailRegExp.test(inputValue);
+  else if (inputName === "mobile") errorMobile = mobileRegExp.test(inputValue);
 
-  $errorName.style.display = errorName;
-  $errorEmail.style.display = errorEmail;
-  $errorMobile.style.display = errorMobile;
+  $errorName.style.display = errorName ? "none" : "block";
+  $errorEmail.style.display = errorEmail ? "none" : "block";
+  $errorMobile.style.display = errorMobile ? "none" : "block";
 
+  if (errorName && errorMobile && errorEmail) $submitBtn.disabled = false;
   item[inputName] = inputValue;
 };
 

@@ -24,11 +24,13 @@ body *, body *::before, body *::after {
 }
 
 .wrapper {
-  width: 100%;
-  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
   background-color: #f4f4f4;
 }
 .intro {
+  width: 100%;
   display: block;
   text-align: center;
 }
@@ -49,6 +51,7 @@ body *, body *::before, body *::after {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  width: 100%;
 }
 .registerBlock {
   flex: 0 1 300px;
@@ -134,7 +137,8 @@ body *, body *::before, body *::after {
 
 /* sort list */
 .sortWrapper {
-
+  display: flex;
+  flex-direction: row-reverse;
   width: 100%;
   margin: 20px;
 }
@@ -166,7 +170,7 @@ body *, body *::before, body *::after {
 /* fav list */
 .favTitle {
   margin: 10px 0;
-  max-width: 1020px;
+  width: 100%;
   padding-bottom: 10px;
   text-align: center;
   border-bottom: 1px solid #ccc;
@@ -174,7 +178,6 @@ body *, body *::before, body *::after {
   margin: 0 auto;
 }
 .favList {
-  max-width: 1020px;
   width: 100%;
   padding: 10px 15px 20px 15px;
   margin-bottom: 15px;
