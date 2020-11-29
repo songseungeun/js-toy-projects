@@ -41,16 +41,29 @@ let list = [
   },
 ];
 let item = {};
-let error = true;
+
+let errorName = "none";
+let errorEmail = "none";
+let errorMobile = "none";
 
 // register
 const $newInfoForm = document.querySelector(".newInfoForm");
 const $newInput = document.querySelectorAll(".newInfoForm > input");
 const $submitBtn = document.querySelector(".submitBtn");
 
+// error
+const $errorName = document.querySelector(".errorName");
+const $errorMobile = document.querySelector(".errorMobile");
+const $errorEmail = document.querySelector(".errorEmail");
+
 // name card
 const $cardList = document.querySelector(".cardList");
 const $favList = document.querySelector(".favList");
+
+const inputReset = () => {
+  $newInput.forEach(($input) => ($input.value = ""));
+  item = {};
+};
 
 const render = () => {
   let favHtml = "";
@@ -121,9 +134,7 @@ const render = () => {
 
 document.addEventListener("DOMContentLoaded", render);
 
-const inputReset = () => {
-  $newInput.forEach(($input) => ($input.value = ""));
-};
+const generateId = () => Math.max(...list.map((card) => card.id)) + 1;
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -131,21 +142,35 @@ const handleSubmit = (e) => {
   if (!error) {
   }
 
-  list = [...list, item];
-  console.log(list);
-  inputReset();
+  item.id = generateId();
+  item.fav = false;
 
+  list = [...list, item];
+
+  inputReset();
   render();
 };
 
-const generateId = () => {};
+const emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+const mobileRegExp = /^\d{3}-\d{3,4}-\d{4}$/;
+
 const validateInput = ({ target }) => {
   $newInfoForm.addEventListener("submit", handleSubmit);
 
   let inputName = target.className;
   let inputValue = target.value;
 
-  item.id = generateId();
+  if (inputName === "name")
+    errorName = inputValue.length >= 2 ? "none" : "block";
+  else if (inputName === "email")
+    errorEmail = emailRegExp.test(inputValue) ? "none" : "block";
+  else if (inputName === "mobile")
+    errorMobile = mobileRegExp.test(inputValue) ? "none" : "block";
+
+  $errorName.style.display = errorName;
+  $errorEmail.style.display = errorEmail;
+  $errorMobile.style.display = errorMobile;
+
   item[inputName] = inputValue;
 };
 
