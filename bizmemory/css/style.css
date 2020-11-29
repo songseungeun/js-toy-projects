@@ -357,7 +357,7 @@ body *, body *::before, body *::after {
   background-color: #333;
   text-align: center;
   line-height: 1.7;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 .copyright {
   color: #666;
